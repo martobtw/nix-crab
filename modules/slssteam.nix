@@ -21,6 +21,9 @@
     src = slsteam-moon;
     nativeBuildInputs = with pkgs; [pkg-config];
     buildInputs = with pkgs.pkgsi686Linux; [openssl curl];
+    # gcc 15 (current nixpkgs) stopped pulling <cstdint> transitively; the
+    # fork was developed against toolchains that still do.
+    env.NIX_CFLAGS_COMPILE = "-include cstdint";
     # pattern-refresh is a native host helper we don't need; only the two
     # Steam-loaded i386 objects are injected.
     buildPhase = "make bin/SLSsteam.so bin/library-inject.so";

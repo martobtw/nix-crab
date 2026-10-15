@@ -47,7 +47,11 @@
     # actually wired up (the home link mirrors the LD_PRELOAD choice).
     # Upstream is a `type = "file"` input (the .so itself); moon is a git
     # input with the .so at the repo root.
-    CR_UP="${cloudredirect}"
+    # moon gate: the upstream hook is a floating releases/latest URL whose
+    # content changes on every upstream release — force its narHash check
+    # only when it is the hook actually in use, or every release would break
+    # eval until the next flake refresh.
+    CR_UP="${builtins.concatStringsSep "" (lib.optional (!config.programs.nix-crab.cloudredirect.moon.enable) cloudredirect)}"
     CR_MOON="${cloudredirect-moon}/cloud_redirect.so"
     # flat key block to config.yaml. So always read the last occurrence.
     val() { grep "^$1:" "$CFG" | tail -1 | awk '{print $2}'; }
