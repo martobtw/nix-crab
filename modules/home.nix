@@ -330,6 +330,16 @@ in {
       # every start. Drop these two once the typed module catches up.
       LogLevels = lib.mkDefault 255;
       CDKeys = lib.mkDefault {};
+
+      # Newer upstream additions its typed module still lacks (SLSsteam
+      # warns "missing key" on every start without them). Defaults root
+      # match res/config.yaml: 0x1 = SteamDRM (0x2 = Denuvo), LaunchOptions
+      # maps appId to the per-app launch command (4294967294/4294967295 =
+      # all-unowned/all-apps specials); Plugins loads the Lua plugins
+      # subdirectory (arbitrary code — off by default).
+      SmartTickets = lib.mkDefault 1;
+      LaunchOptions = lib.mkDefault {};
+      Plugins = lib.mkDefault false;
     };
 
     # Only manage config.yaml when explicitly enabled. Otherwise the typed
