@@ -2,13 +2,14 @@
   description = "Flake for h3adcr-b on NixOS";
 
   inputs = {
-    accela = {
-      type = "file";
-      # Enter The Wired's bundle, which ships the AppImage. Versionless URL, so
-      # unlike steamidra it needs no tag-list indirection and no pinned hash.
-      url = "https://github.com/ciscosweater/enter-the-wired/releases/download/latest/deps.tar.gz";
-      flake = false;
-    };
+    # accela no longer an input: Enter The Wired's ACCELA bundle was replaced
+    # with niwia/ASSella (same UI + QoL forks), fetched directly in
+    # modules/accela.nix. ASSella's releases are version tags (no floating
+    # "latest"), so bumping means editing the pinned version + hashes there —
+    # the same maintenance model as millennium-main; the release tags carry
+    # the AppImage, the logo lives on the beta branch. Current pin: v2.7.0beta
+    # (beta@1b63ebec, 2026-10-15). No floating narHash breakage from upstream
+    # re-releases, unlike the enter-the-wired bundle this replaces.
     # Upstream CloudRedirect hook — the default. Reads the game list from
     # config.yaml's AdditionalApps.
     cloudredirect = {
@@ -75,7 +76,6 @@
   };
 
   outputs = {
-    accela,
     cloudredirect,
     cloudredirect-moon,
     cloudredirect-cli,
@@ -105,7 +105,7 @@
         ./modules/millennium-addons.nix
         (import ./modules/luatools-moon.nix {inherit lumen luatools-moon;})
         (import ./modules/steamidra.nix {inherit steamidra;})
-        (import ./modules/accela.nix {inherit accela;})
+        (import ./modules/accela.nix)
       ];
     };
   };
