@@ -1,14 +1,12 @@
 {
   sls-steam,
   slsteam-moon,
-}:
-{
+}: {
   config,
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.programs.nix-crab;
 
   upstream = sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam;
@@ -19,16 +17,10 @@ let
   # upstream uses in its own nix-modules/default.nix.
   slsteamMoon = pkgs.pkgsi686Linux.stdenv.mkDerivation {
     pname = "slsteam-moon";
-    patches = lib.optionals cfg.slssteam-moon.unlockAllDlc [
-      ./patches/slsteam-moon-global-dlc-scope.patch
-    ];
     version = "0.0.0";
     src = slsteam-moon;
-    nativeBuildInputs = with pkgs; [ pkg-config ];
-    buildInputs = with pkgs.pkgsi686Linux; [
-      openssl
-      curl
-    ];
+    nativeBuildInputs = with pkgs; [pkg-config];
+    buildInputs = with pkgs.pkgsi686Linux; [openssl curl];
     # gcc 15 (current nixpkgs) stopped pulling <cstdint> transitively; the
     # fork was developed against toolchains that still do.
     env.NIX_CFLAGS_COMPILE = "-include cstdint";
@@ -53,15 +45,17 @@ let
 
   # Both forks ship the same two artefacts under the same names, so the choice
   # is one store path, not two branches of wiring.
-  sls = if cfg.slssteam-moon.enable then slsteamMoon else upstream;
-in
-{
+  sls =
+    if cfg.slssteam-moon.enable
+    then slsteamMoon
+    else upstream;
+in {
   options.programs.nix-crab = {
     slssteam.enable = lib.mkEnableOption "SLSsteam (upstream) injection into Steam";
 
     slssteam.extraEnv = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
-      default = { };
+      default = {};
       description = "Additional environment variables injected into Steam";
     };
 
@@ -70,24 +64,17 @@ in
       upstream SLSsteam. Takes precedence over slssteam.enable; required by
       the home module's luatools option.
     '';
-
-    slssteam-moon.unlockAllDlc = lib.mkEnableOption ''
-      the pre-moon DLC behaviour: any DLC Steam asks ownership about gets the
-      local ownership override, regardless of whether its base app is in the
-      managed game list (stplug-in / luaappids.yaml). Moon deliberately scopes
-      DLC to managed apps (see its dlc.cpp comments); upstream SLSsteam
-      answered every query. Apply the scope-relaxing patch to moon's source.
-    '';
   };
 
   config = lib.mkIf (cfg.slssteam.enable || cfg.slssteam-moon.enable) {
     programs.steam = {
       enable = true;
       package = pkgs.steam.override {
-        extraEnv = {
-          LD_AUDIT = "${sls}/library-inject.so:${sls}/SLSsteam.so";
-        }
-        // cfg.slssteam.extraEnv;
+        extraEnv =
+          {
+            LD_AUDIT = "${sls}/library-inject.so:${sls}/SLSsteam.so";
+          }
+          // cfg.slssteam.extraEnv;
       };
     };
   };
