@@ -12,9 +12,12 @@
     # re-releases, unlike the enter-the-wired bundle this replaces.
     # Upstream CloudRedirect hook — the default. Reads the game list from
     # config.yaml's AdditionalApps.
+    # Selectively11's account (repos + releases) was deleted; these are
+    # byte-identical mirrors from lain's nix store, rehosted on this repo's
+    # "mirror" release. narHash pins unchanged (content identical).
     cloudredirect = {
       type = "file";
-      url = "https://github.com/Selectively11/CloudRedirect/releases/latest/download/cloud_redirect.so";
+      url = "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect.so";
       flake = false;
     };
     # Optional hook for the LuaTools stack, opt-in via
@@ -29,7 +32,7 @@
     };
     cloudredirect-cli = {
       type = "file";
-      url = "https://github.com/Selectively11/h3adcr-b/releases/download/linux-test/cloud_redirect_cli";
+      url = "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect_cli";
       flake = false;
     };
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";

@@ -1,27 +1,15 @@
 {
   "nodes": {
-    "accela": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-tAyIIBbqVLP9c1WpUjFUsVYmGdRg6kz4vXqLXXJpPEk=",
-        "type": "file",
-        "url": "https://github.com/ciscosweater/enter-the-wired/releases/download/latest/deps.tar.gz"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/ciscosweater/enter-the-wired/releases/download/latest/deps.tar.gz"
-      }
-    },
     "cloudredirect": {
       "flake": false,
       "locked": {
         "narHash": "sha256-THlPEtlACX7zQQjLHNNNJip4dEimlyC7RqOvExgHAIs=",
         "type": "file",
-        "url": "https://github.com/Selectively11/CloudRedirect/releases/latest/download/cloud_redirect.so"
+        "url": "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect.so"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/Selectively11/CloudRedirect/releases/latest/download/cloud_redirect.so"
+        "url": "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect.so"
       }
     },
     "cloudredirect-cli": {
@@ -29,11 +17,11 @@
       "locked": {
         "narHash": "sha256-694YaLIyMi1YZ06iuDiUlK9qW3zLuax9ghjRhMlOCU0=",
         "type": "file",
-        "url": "https://github.com/Selectively11/h3adcr-b/releases/download/linux-test/cloud_redirect_cli"
+        "url": "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect_cli"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/Selectively11/h3adcr-b/releases/download/linux-test/cloud_redirect_cli"
+        "url": "https://github.com/martobtw/nix-crab/releases/download/mirror/cloud_redirect_cli"
       }
     },
     "cloudredirect-moon": {
@@ -185,7 +173,6 @@
     },
     "root": {
       "inputs": {
-        "accela": "accela",
         "cloudredirect": "cloudredirect",
         "cloudredirect-cli": "cloudredirect-cli",
         "cloudredirect-moon": "cloudredirect-moon",
