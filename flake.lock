@@ -80,11 +80,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1792357572,
-        "narHash": "sha256-2krnWSUcN06EYtUKqFxkbSIQP6NAfhMOrgnxZXB+dcc=",
+        "lastModified": 1792943446,
+        "narHash": "sha256-JQ7ff1427PoYtxXbj+keMsNr+Nikc1/RuPm4l/VjX8U=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "f7a356f6789bc7d23f44bfbcdd95c71f0385cc1a",
+        "rev": "de5e9bdc251e2a422549ebe8b932015e126b994f",
         "type": "github"
       },
       "original": {
@@ -97,17 +97,17 @@
     "millennium-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1792357406,
-        "narHash": "sha256-We8OIJP/5q0nv2RVHQYfjRaHK6ZQuSM88eKa9BezUPk=",
+        "lastModified": 1792710296,
+        "narHash": "sha256-e79vMkWWeK7Rk3OjbK82yC+EgVgCCtG9wRMxO1ZP+vE=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "88fb7c16d04d162cb3e94beedb11a51705ec03fb",
+        "rev": "3858d60a2081f612739f07386ceac9b79f68274b",
         "type": "github"
       },
       "original": {
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "88fb7c16d04d162cb3e94beedb11a51705ec03fb",
+        "rev": "3858d60a2081f612739f07386ceac9b79f68274b",
         "type": "github"
       }
     },
@@ -157,11 +157,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792210252,
-        "narHash": "sha256-Mh0PUaIv4nFY+8wAGonaEh8iBzwsmdNlwjVHmFg1Biw=",
+        "lastModified": 1792773339,
+        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "09063bd1f2b36fd9fd793c36dfade7bd40a93dfc",
+        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791984735,
-        "narHash": "sha256-qTgWYsCg/pi6wI1PM4lolldIUNhokvsalfYbyjfIoKk=",
+        "lastModified": 1792959440,
+        "narHash": "sha256-tCqeshGKYtT6rxKloO+W6X0BG1/V/6Wdm/53EW9DDas=",
         "owner": "AceSLS",
         "repo": "SLSsteam",
-        "rev": "136f614f979d6038f7cee1bc6db5261539a5ac9e",
+        "rev": "7f59509e51bfdb9f385300bdc85269f84618bf99",
         "type": "github"
       },
       "original": {
@@ -210,11 +210,11 @@
     "slsteam-moon": {
       "flake": false,
       "locked": {
-        "lastModified": 1792024503,
-        "narHash": "sha256-yaZfRYqczprfU+XtC+neyup1sFRIH9/g36MfT5cs47M=",
+        "lastModified": 1792683809,
+        "narHash": "sha256-G52g3QbtxFe2+Ime9Zacrv9jKHzKA/mGwpTVp+suZq0=",
         "owner": "swwayps",
         "repo": "slsteam-moon",
-        "rev": "6cbac01e977c14c34b72ac16ea424e75935158ae",
+        "rev": "0b08fe434e1716dea32bbfe8741ffa764d5f5e23",
         "type": "github"
       },
       "original": {
