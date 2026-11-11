@@ -80,11 +80,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1792943446,
-        "narHash": "sha256-JQ7ff1427PoYtxXbj+keMsNr+Nikc1/RuPm4l/VjX8U=",
+        "lastModified": 1793036394,
+        "narHash": "sha256-vKNDa2aF7mi8I5SJVlqtePTwel64sYEAiHQR7HbUpwk=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "de5e9bdc251e2a422549ebe8b932015e126b994f",
+        "rev": "d6a7822a43744b6290a0e059bdd032d9b9a2ec94",
         "type": "github"
       },
       "original": {
@@ -157,11 +157,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792773339,
-        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
+        "lastModified": 1794042290,
+        "narHash": "sha256-ziZn2PvCJE5JEEpqTdxXwJpPB+L3YqoCpTAMCzyaP3U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
+        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
         "type": "github"
       },
       "original": {
@@ -194,11 +194,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792959440,
-        "narHash": "sha256-tCqeshGKYtT6rxKloO+W6X0BG1/V/6Wdm/53EW9DDas=",
+        "lastModified": 1793963070,
+        "narHash": "sha256-kjIYUivUuOuw6ISfmkJ9T3n/WWW+74zxXG2yIKYUq3Y=",
         "owner": "AceSLS",
         "repo": "SLSsteam",
-        "rev": "7f59509e51bfdb9f385300bdc85269f84618bf99",
+        "rev": "c61443a826a3cf58b76da97c62b33bc5db9800b1",
         "type": "github"
       },
       "original": {
