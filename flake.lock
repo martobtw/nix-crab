@@ -238,7 +238,7 @@
     "steamnetsock": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-PcdhlMpnCw2WtH6IKahbxb7cDOjjlBzL8rSLAGIVQcw=",
+        "narHash": "sha256-Tf6UVZ9258zDJlxj/vk1U1MX0A1ShkvsnXW+MXAUZIg=",
         "type": "file",
         "url": "https://github.com/yesyes0649/steamnetsock-patch/releases/latest/download/fix.so"
       },
