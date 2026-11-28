@@ -92,13 +92,12 @@
     INJECTION="none"
     if ${pkgs.procps}/bin/pgrep -x steam >/dev/null 2>&1 \
       || ${pkgs.procps}/bin/pgrep -x steamwebhelper >/dev/null 2>&1; then
-      UID_NOW="$(id -u)"
       for p in /proc/[0-9]*/environ; do
-        [ -O "$p" ] || continue
-        LD="$(tr '\0' '\n' < "$p" 2>/dev/null | grep -m1 '^LD_AUDIT=' || true)"
+        [ -r "$p" ] || continue
+        LD="$({ tr '\0' '\n' < "$p" | grep -m1 '^LD_AUDIT='; } 2>/dev/null || true)"
         case "$LD" in
           *slsteam-moon*) INJECTION="slsteam-moon (LuaTools)"; break ;;
-          *sls-steam*)    INJECTION="upstream SLSsteam"; break ;;
+          *SLSsteam*|*sls-steam*) INJECTION="upstream SLSsteam"; break ;;
         esac
       done
     fi
