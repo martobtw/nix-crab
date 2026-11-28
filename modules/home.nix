@@ -89,20 +89,18 @@
     # LD_AUDIT lands in the env of every process Steam launches; scan /proc
     # for one carrying it and see which fork is injected. Store names differ:
     # upstream builds as "sls-steam", the fork as "slsteam-moon".
-    INJECTION="unknown (Steam not running)"
+    INJECTION="none"
     if ${pkgs.procps}/bin/pgrep -x steam >/dev/null 2>&1 \
       || ${pkgs.procps}/bin/pgrep -x steamwebhelper >/dev/null 2>&1; then
-      INJECTION="none"
-      LD=""
+      UID_NOW="$(id -u)"
       for p in /proc/[0-9]*/environ; do
-        [ -r "$p" ] || continue
+        [ -O "$p" ] || continue
         LD="$(tr '\0' '\n' < "$p" 2>/dev/null | grep -m1 '^LD_AUDIT=' || true)"
-        [ -n "$LD" ] && break
+        case "$LD" in
+          *slsteam-moon*) INJECTION="slsteam-moon (LuaTools)"; break ;;
+          *sls-steam*)    INJECTION="upstream SLSsteam"; break ;;
+        esac
       done
-      case "$LD" in
-        *slsteam-moon*) INJECTION="slsteam-moon (LuaTools)" ;;
-        *sls-steam*)    INJECTION="upstream SLSsteam" ;;
-      esac
     fi
 
     # -- Games (slsteam-moon / LuaTools) ------------------------------------
